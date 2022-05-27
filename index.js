@@ -42,8 +42,10 @@ module.exports = (inputJsonString) => {
   var resultItems = []
   for (var i = 0; i < paddedkeys.length; i = i + 1) 
     for (var j = 0; j < keys.length; j = j + 1) 
-      if (parseInt(paddedkeys[i]) === parseInt(keys[j]))
-        resultItems.push("\"" + keys[i] +"\": \"" + deserialised[keys[i]] +"\"," )
+      if (parseInt(paddedkeys[i]) === parseInt(keys[j])){
+        resultItems.push("\"" + keys[j] +"\": \"" + deserialised[keys[j]] +"\"," )
+        break
+      }
 
   console.log(resultItems);
 
