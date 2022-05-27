@@ -1,4 +1,4 @@
-hidden = [".gitignore", "jest.config.js", "README.md", "package-lock.json"]
+hidden = [".gitignore", "jest.config.js", "README.md", "package.json", "package-lock.json"]
 
 run = ["npm", "test"]
 
