@@ -1,13 +1,12 @@
 var myFunc = require( "./index" );
 
 var thingToSort = `{
+ "7": "seventh",
  "1": "first",
  "3": "third",
  "2": "second",
- "11": "eleventh",
- "07": "seventh",
  "20": "twentyth",
- "02": "secondsecond" 
+ "11": "eleventh"
 }`;
 
 it("should get the correct number of items", () => {  

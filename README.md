@@ -15,24 +15,22 @@ The method is in `./index.js` and tests in `./index.test.js`
 Example input:
 ```json
 {
+ "7": "seventh",
  "1": "first",
- "2": "second",
  "3": "third",
- "11": "eleventh",
- "07": "seventh",
+ "2": "second",
  "20": "twentyth",
- "02": "secondsecond" 
+ "11": "eleventh"
 }
 ```
 Expected output
 ```json
 {
  "1": "first",
- "3": "third",
  "2": "second",
+ "3": "third",
+ "7": "seventh",
  "11": "eleventh",
- "07": "seventh",
- "20": "twentyth",
- "02": "secondsecond" 
+ "20": "twentyth"
 }
 ```

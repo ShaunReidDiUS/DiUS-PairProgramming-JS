@@ -3,6 +3,7 @@ var _ = require('lodash');
 module.exports = (inputJsonString) => {
   var deserialised = JSON.parse(inputJsonString);
 
+  //get keys
   var keys = [];
   for (var key in deserialised) {
     keys.push(key);
