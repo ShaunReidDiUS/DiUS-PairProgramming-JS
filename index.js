@@ -9,51 +9,31 @@ module.exports = (inputJsonString) => {
   }
   console.log(keys);
 
-  var longest_lengths = 0;
-  for (var i = 0; i < keys.length; i = i + 1) {
-    if (keys[i].length > longest_lengths) {
-      longest_lengths = keys[i].length;
-    }
-  }
-  console.log(longest_lengths);
-
-  var paddedkeys = [];
-  for (var i = 0; i < keys.length; i = i + 1) {
-    var paddedKey = keys[i];
-    while (paddedKey.length < longest_lengths) {
-      paddedKey = _.padStart(paddedKey, paddedKey.length + 1, '0');
-      // console.log(paddedKey);
-    }
-    paddedkeys.push(paddedKey);
-  }
-  console.log(paddedkeys);
-
   //sort
-  for (var i = 1; i <= paddedkeys.length - 1; i = i + 1) {
-    for (var j = 0; j <= paddedkeys.length - i - 1; j = j + 1)
-      if (paddedkeys[j] > paddedkeys[j + 1]) {
-        var temp = paddedkeys[j];
-        paddedkeys[j] = paddedkeys[j + 1];
-        paddedkeys[j + 1] = temp;
+  for (var i = 1; i <= keys.length - 1; i = i + 1) {
+    for (var j = 0; j <= keys.length - i - 1; j = j + 1)
+      if (parseInt(keys[j]) > parseInt(keys[j + 1])) {
+        var temp = keys[j];
+        keys[j] = keys[j + 1];
+        keys[j + 1] = temp;
       }
   }
-  console.log(paddedkeys);
+  console.log(keys);
 
+  //build string keys
   var resultItems = []
-  for (var i = 0; i < paddedkeys.length; i = i + 1) 
-    for (var j = 0; j < keys.length; j = j + 1) 
-      if (parseInt(paddedkeys[i]) === parseInt(keys[j])){
-        resultItems.push("\"" + keys[j] +"\": \"" + deserialised[keys[j]] +"\"," )
-        break
-      }
+  for (var i = 0; i < keys.length; i = i + 1) 
+    resultItems.push("\"" + keys[i] +"\": \"" + deserialised[keys[i]] +"\"" )
 
   console.log(resultItems);
 
+  //build json object
   var resultStr = '{'
-  for (var i = 0; i < resultItems.length; i = i + 1) 
+  for (var i = 0; i < resultItems.length; i = i + 1) {
     resultStr = resultStr + resultItems[i];
-  
-  resultStr = resultStr.substring(0, resultStr.length-1)
+    if( i != resultItems.length -1 )
+      resultStr = resultStr + ','
+  }
   resultStr = resultStr + '}'
   
   return resultStr;
